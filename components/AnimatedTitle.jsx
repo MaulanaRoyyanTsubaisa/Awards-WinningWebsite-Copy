@@ -1,9 +1,11 @@
-import React, { useRef, useEffect } from "react";
-import gsap from "gsap";
+import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import clsx from "clsx";
+
 gsap.registerPlugin(ScrollTrigger);
-const AnimatedTittle = ({ title, containerClass }) => {
+
+const AnimatedTitle = ({ title, containerClass }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -16,6 +18,7 @@ const AnimatedTittle = ({ title, containerClass }) => {
           toggleActions: "play none none reverse",
         },
       });
+
       titleAnimation.to(
         ".animated-word",
         {
@@ -28,7 +31,7 @@ const AnimatedTittle = ({ title, containerClass }) => {
       );
     }, containerRef);
 
-    return () => ctx.revert(); // Cleanup function to revert the animation context
+    return () => ctx.revert(); // Clean up on unmount
   }, []);
 
   return (
@@ -38,9 +41,9 @@ const AnimatedTittle = ({ title, containerClass }) => {
           key={index}
           className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
         >
-          {line.split(" ").map((word, i) => (
+          {line.split(" ").map((word, idx) => (
             <span
-              key={i}
+              key={idx}
               className="animated-word"
               dangerouslySetInnerHTML={{ __html: word }}
             />
@@ -51,4 +54,4 @@ const AnimatedTittle = ({ title, containerClass }) => {
   );
 };
 
-export default AnimatedTittle;
+export default AnimatedTitle;

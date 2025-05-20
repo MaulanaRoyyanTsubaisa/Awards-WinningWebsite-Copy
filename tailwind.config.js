@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}, ./src/global.css"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", "./src/global.css"],
+  safelist: [
+    "bento-tilt_1",
+    "bento-tilt_2",
+    "bento-title",
+    "special-font",
+    "hero-heading",
+  ],
+
   theme: {
     extend: {
       fontFamily: {
