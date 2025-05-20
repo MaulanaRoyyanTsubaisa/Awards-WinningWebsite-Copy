@@ -1,7 +1,6 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
-import VidePrev from "./VidPrev";
 
 import AnimatedTitle from "./AnimatedTitle";
 
